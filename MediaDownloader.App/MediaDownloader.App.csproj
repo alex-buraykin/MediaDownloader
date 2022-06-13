@@ -9,6 +9,8 @@
 
     <ItemGroup>
       <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+      <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     </ItemGroup>
 
 </Project>
