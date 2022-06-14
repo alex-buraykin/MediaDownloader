@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
-using GalaSoft.MvvmLight.Messaging;
 using MediaDownloader.App.Services.Navigation.Abstract;
 using MediaDownloader.App.Services.Navigation.Abstract.Models;
 using MediaDownloader.App.ViewModels.Abstract;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.Messaging;
 
 namespace MediaDownloader.App.Services.Navigation;
 
@@ -27,7 +27,7 @@ public class ViewService : IViewService, IDisposable
         _openedWindows = new List<Window>();
 
         // Listen for the close event
-        messenger.Register<RequestCloseMessage>(this, OnRequestClose);
+        messenger.Register<ViewService, RequestCloseMessage>(this, static (r, m) => r.OnRequestClose(m));
     }
 
     [DebuggerStepThrough]
@@ -148,6 +148,6 @@ public class ViewService : IViewService, IDisposable
 
         public void Dispose()
         {
-            _messenger.Unregister<RequestCloseMessage>(this, OnRequestClose);
+            _messenger.Unregister<RequestCloseMessage>(this);
         }
 }

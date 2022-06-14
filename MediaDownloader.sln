@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDownloader.App", "MediaDownloader.App\MediaDownloader.App.csproj", "{F84E6B18-3F9F-4317-AC49-0543934F5798}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{0989D79F-C2F4-4BF3-9023-FB9C6CBC6EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDownloader.Framework", "MediaDownloader.Framework\MediaDownloader.Framework.csproj", "{DF810222-69FD-48A6-B7B2-4ABA958678CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{F84E6B18-3F9F-4317-AC49-0543934F5798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F84E6B18-3F9F-4317-AC49-0543934F5798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F84E6B18-3F9F-4317-AC49-0543934F5798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF810222-69FD-48A6-B7B2-4ABA958678CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF810222-69FD-48A6-B7B2-4ABA958678CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF810222-69FD-48A6-B7B2-4ABA958678CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF810222-69FD-48A6-B7B2-4ABA958678CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF810222-69FD-48A6-B7B2-4ABA958678CC} = {0989D79F-C2F4-4BF3-9023-FB9C6CBC6EAF}
 	EndGlobalSection
 EndGlobal

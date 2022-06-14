@@ -8,9 +8,19 @@
                   mc:Ignorable="d"
                   Title="{Binding Path=Header, Mode=OneWay}"
                   Height="450" Width="800"
+                  WindowStartupLocation="CenterScreen"
                   d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
                   Closing="Window_OnClosing">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <!-- Input Url Control -->
+        <ContentPresenter Grid.Row="0"
+                          Content="{Binding InputUrlViewModel.View, Mode=OneWay}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch"/>
     </Grid>
 </mah:MetroWindow>

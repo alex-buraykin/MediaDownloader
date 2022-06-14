@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="MediaDownloader.App.Views.Input.InputUrlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:input="clr-namespace:MediaDownloader.App.ViewModels.Input"
+             xmlns:utils="clr-namespace:MediaDownloader.App.Utils"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance input:InputUrlViewModel}"
+             d:DesignHeight="50" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Url TextBox -->
+        <TextBox Text="{Binding Path=Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- Download Button -->
+        <Button Grid.Column="1"
+                Content="Download"
+                Padding="20 0 0 0"
+                Command="{Binding Path=DownloadCommand}"
+                utils:MvvmHelper.NotifyCommandParameterChanges="true"
+                CommandParameter="{Binding Path=Url, Mode=OneWay}"/>
+    </Grid>
+</UserControl>
