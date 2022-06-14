@@ -1,18 +1,14 @@
 ﻿using System.Windows;
-using GalaSoft.MvvmLight;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace MediaDownloader.App.ViewModels.Abstract;
 
-public abstract class ViewModel<TView> : ViewModelBase, IViewModel<TView>
+public abstract class ViewModel<TView> : ObservableRecipient, IViewModel<TView>
     where TView : FrameworkElement, new()
 {
     private TView? _view;
 
-    public abstract string Header { get; }
+    public virtual string Header => string.Empty;
 
-    public TView View
-    {
-        get => _view ??= new TView();
-        set => _view = value;
-    }
+    public TView View => _view ??= new TView { DataContext = this };
 }

@@ -1,15 +1,14 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Messaging;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace MediaDownloader.App.Services.Navigation.Abstract.Models;
 
-public class RequestCloseMessage : MessageBase
+public class RequestCloseMessage
 {
-    public ViewModelBase ViewModel { get; }
+    public ObservableRecipient ViewModel { get; }
     public bool? DialogResult { get; }
 
     public RequestCloseMessage(
-        ViewModelBase viewModel,
+        ObservableRecipient viewModel,
         bool? dialogResult = null)
     {
         ViewModel = viewModel;

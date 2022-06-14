@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Windows;
-using GalaSoft.MvvmLight.Messaging;
 using MediaDownloader.App.Services.Navigation;
 using MediaDownloader.App.Services.Navigation.Abstract;
 using MediaDownloader.App.Services.Navigation.Abstract.Models;
 using MediaDownloader.App.ViewModels;
+using MediaDownloader.App.ViewModels.Input;
 using MediaDownloader.App.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Toolkit.Mvvm.Messaging;
 
 namespace MediaDownloader.App
 {
@@ -31,9 +32,13 @@ namespace MediaDownloader.App
 
         private void ConfigureServices(IConfiguration configuration, IServiceCollection services)
         {
-            services.AddSingleton<IMessenger, Messenger>();
+            // setup mvvm engine
+            services.AddSingleton<IMessenger, WeakReferenceMessenger>();
             services.AddSingleton<IViewService, ViewService>();
+
+            // setup view-models
             services.AddSingleton<MainViewModel>();
+            services.AddSingleton<InputUrlViewModel>();
         }
 
         protected override async void OnStartup(StartupEventArgs e)
